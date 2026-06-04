@@ -1,0 +1,38 @@
+{
+  "name": "clinical-rules-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server that exposes payer-specific clinical authorization criteria as agent-consumable tools, designed to compose with Anthropic's native Claude for Healthcare CMS Connector.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Paul Lopez",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
+    "seed": "tsx scripts/seed-cms-data.ts && tsx scripts/seed-synthetic-payers.ts",
+    "seed:cms": "tsx scripts/seed-cms-data.ts",
+    "seed:payers": "tsx scripts/seed-synthetic-payers.ts",
+    "demo:track2": "tsx demo/track-2-langgraph/pipeline.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
+    "@langchain/langgraph": "^0.4.9",
+    "@modelcontextprotocol/sdk": "^1.21.0",
+    "better-sqlite3": "^12.4.1",
+    "express": "^5.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,55 @@
+graph TD
+  subgraph Agent["Claude Agent Runtime (Claude Desktop / LangGraph / custom)"]
+    A[Agent]
+  end
+
+  subgraph Anthropic["Anthropic native — Claude for Healthcare"]
+    CMS[CMS Coverage Connector<br/>NCD / LCD ground truth]
+    ICD[ICD-10 Connector<br/>Diagnosis code validation]
+  end
+
+  subgraph Server["clinical-rules-mcp-server (this repo, port 3001)"]
+    LP[list_payers]
+    GCP[get_coverage_policy]
+    CAR[check_auth_requirements]
+    FDG[flag_documentation_gaps]
+  end
+
+  subgraph Store["SQLite knowledge store (dev) / Postgres (prod ref)"]
+    NCDDOC[(ncd_documents)]
+    LCDDOC[(lcd_documents)]
+    PAYER[(payer_profiles)]
+    COV[(coverage_policies)]
+    AUTH[(auth_requirements)]
+    DOC[(documentation_criteria)]
+  end
+
+  CLAUDE[Internal Claude API call<br/>flag_documentation_gaps only]
+
+  A --> CMS
+  A --> ICD
+  A --> LP
+  A --> GCP
+  A --> CAR
+  A --> FDG
+
+  LP --> PAYER
+  GCP --> COV
+  GCP --> NCDDOC
+  GCP --> LCDDOC
+  CAR --> AUTH
+  FDG --> DOC
+  FDG --> CLAUDE
+
+  subgraph Track2["Track 2 — LangGraph pipeline"]
+    N1[AuthRequestNode] --> N2[CoverageCheckNode]
+    N2 --> N3[DocumentationAuditNode]
+    N3 --> N4[DeterminationNode]
+    N4 -->|confidence &lt; 0.8| N5[HumanReviewNode]
+    N4 -->|confidence &gt;= 0.8| OUT[Determination]
+    N5 --> OUT
+  end
+
+  N2 -.federal baseline.-> CMS
+  N2 -.payer overlay.-> GCP
+  N3 -.gap analysis.-> FDG

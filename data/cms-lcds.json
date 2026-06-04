@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "source": "CMS Local Coverage Determinations (LCD), coverage.cms.gov",
+    "provenance": "Public domain (U.S. federal government work, 17 U.S.C. 105)",
+    "note": "Summaries are representative excerpts of public Medicare Administrative Contractor (MAC) LCD language, cached so Track 1 requires no live CMS API call.",
+    "cached_at": "2026-06-04"
+  },
+  "lcds": [
+    {
+      "lcd_id": "L33456",
+      "contractor_name": "Noridian Healthcare Solutions (MAC J-F)",
+      "title": "Major Joint Replacement (Hip and Knee)",
+      "effective_date": "2022-06-01",
+      "summary": "Total knee arthroplasty (CPT 27447) is reasonable and necessary for advanced osteoarthritis (e.g., ICD-10 M17.x) when imaging confirms joint-space narrowing and the record documents failure of conservative management — including a trial of anti-inflammatory medication, activity modification, and physical therapy — over a sustained period. The conservative-care trial period is the most frequently cited documentation gap.",
+      "states_covered": ["AK", "AZ", "ID", "MT", "ND", "OR", "SD", "UT", "WA", "WY"]
+    },
+    {
+      "lcd_id": "L34567",
+      "contractor_name": "Palmetto GBA (MAC J-J / J-M)",
+      "title": "Major Joint Replacement — Southeast Region",
+      "effective_date": "2021-11-15",
+      "summary": "Covers CPT 27447 for documented end-stage degenerative joint disease. Requires radiographic evidence and documentation of failed non-operative therapy. Body Mass Index and smoking status are advisory documentation elements that strengthen the determination but do not block it.",
+      "states_covered": ["AL", "GA", "NC", "SC", "TN", "VA", "WV"]
+    },
+    {
+      "lcd_id": "L35099",
+      "contractor_name": "CGS Administrators (MAC J-15)",
+      "title": "Evaluation and Management Services",
+      "effective_date": "2023-01-01",
+      "summary": "Established-patient office visits (CPT 99213) require documentation supporting the level of service: a relevant history, examination, and medical decision-making of low complexity. No prior authorization required.",
+      "states_covered": ["KY", "OH"]
+    }
+  ]
+}

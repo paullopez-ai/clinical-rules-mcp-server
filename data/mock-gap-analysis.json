@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "purpose": "Deterministic fixture returned by flag_documentation_gaps when MOCK_LLM=true. Keyed by procedure_code, with a 'default' fallback. Lets Track 1 and the entire test suite run with no Anthropic API key (PRD Section 3.2).",
+    "note": "These are illustrative gap assessments, not real clinical determinations."
+  },
+  "by_procedure": {
+    "27447": {
+      "completeness_score": 56,
+      "summary": "Imaging is present but the supervised conservative-management history required by the payer overlay is not documented. The conservative-care trial is a blocking element, so this submission would not clear automated review.",
+      "gaps": [
+        {
+          "element": "Conservative-management history spanning the payer-required window",
+          "severity": "blocking",
+          "suggested_language": "Document start/end dates of supervised conservative management (physical therapy, NSAID/analgesic trial, activity modification) covering the full payer-required duration, with response noted at each interval."
+        },
+        {
+          "element": "Physical therapy completion notes",
+          "severity": "blocking",
+          "suggested_language": "Attach signed physical therapy discharge or progress notes showing visit count, duration, and functional outcome."
+        },
+        {
+          "element": "Functional / pain assessment",
+          "severity": "advisory",
+          "suggested_language": "Add a standardized functional score (e.g. WOMAC) to strengthen medical necessity, though it is not blocking on its own."
+        }
+      ]
+    },
+    "99213": {
+      "completeness_score": 95,
+      "summary": "Documentation supports the level of service. No prior authorization is required for this established-patient office visit and no blocking gaps are present.",
+      "gaps": []
+    },
+    "default": {
+      "completeness_score": 70,
+      "summary": "Core elements are present; review advisory items below to strengthen the determination.",
+      "gaps": [
+        {
+          "element": "Standardized assessment instrument",
+          "severity": "advisory",
+          "suggested_language": "Add a validated assessment score relevant to the procedure to support medical necessity."
+        }
+      ]
+    }
+  }
+}

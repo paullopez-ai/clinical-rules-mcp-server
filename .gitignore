@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+
+# SQLite knowledge store is rebuilt from committed JSON via the seed scripts.
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm

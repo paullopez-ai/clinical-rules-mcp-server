@@ -1,0 +1,210 @@
+{
+  "_meta": {
+    "source": "SYNTHETIC — authored for this demo only",
+    "provenance": "Illustrative commercial/MA/Medicaid overlay criteria. NOT real payer policy. NOT derived from any proprietary source. Clearly labeled synthetic per PRD Section 3.1.",
+    "disclaimer": "These payer profiles are fictional and exist solely to demonstrate the payer-overlay architecture on top of public-domain CMS coverage data.",
+    "authored_at": "2026-06-04"
+  },
+  "payers": [
+    {
+      "payer_id": "PAYER_COMMERCIAL_A",
+      "payer_name": "Meridian Commercial Health (synthetic)",
+      "plan_types": ["PPO", "HMO", "EPO"],
+      "cpt_domains": ["orthopedics", "evaluation-management", "pain-management"],
+      "cms_baseline_override": false,
+      "coverage_policies": [
+        {
+          "cpt_code": "27447",
+          "coverage_status": "covered_with_prior_auth",
+          "ncd_id": "NCD-NONE-27447",
+          "lcd_id": "L33456",
+          "criteria": {
+            "summary": "Total knee arthroplasty covered with prior authorization. Adopts the CMS LCD conservative-care floor and adds a minimum 12-week supervised conservative therapy trial.",
+            "conservative_therapy_weeks_required": 12,
+            "imaging_required": true,
+            "overlay_notes": "Commercial overlay extends the federal LCD floor with an explicit 12-week trial duration."
+          }
+        },
+        {
+          "cpt_code": "99213",
+          "coverage_status": "covered_no_auth",
+          "ncd_id": "NCD-EVAL-99213",
+          "lcd_id": "L35099",
+          "criteria": {
+            "summary": "Established-patient office visit. Covered, no prior authorization required.",
+            "imaging_required": false,
+            "overlay_notes": "No overlay beyond the CMS E/M baseline."
+          }
+        }
+      ],
+      "auth_requirements": [
+        {
+          "procedure_code": "27447",
+          "diagnosis_group": "knee_osteoarthritis",
+          "plan_type": "PPO",
+          "auth_required": true,
+          "criteria_list": [
+            "Radiographic confirmation of advanced osteoarthritis",
+            "Documented 12-week supervised conservative therapy trial",
+            "Documented failure of NSAID/analgesic management",
+            "Functional impairment assessment"
+          ],
+          "decision_days": 5
+        },
+        {
+          "procedure_code": "99213",
+          "diagnosis_group": "acute_uri",
+          "plan_type": "PPO",
+          "auth_required": false,
+          "criteria_list": [
+            "Documentation supporting level of E/M service"
+          ],
+          "decision_days": 0
+        }
+      ],
+      "documentation_criteria": [
+        {
+          "criteria_id": "DOC_COMM_A_27447",
+          "procedure_code": "27447",
+          "required_elements": [
+            "Radiographic / imaging report confirming joint-space narrowing",
+            "Conservative therapy log spanning at least 12 weeks",
+            "NSAID or analgesic trial with documented response",
+            "Physical therapy notes",
+            "Functional / pain assessment (e.g., WOMAC or equivalent)"
+          ],
+          "blocking_elements": [
+            "Radiographic / imaging report confirming joint-space narrowing",
+            "Conservative therapy log spanning at least 12 weeks"
+          ]
+        },
+        {
+          "criteria_id": "DOC_COMM_A_99213",
+          "procedure_code": "99213",
+          "required_elements": [
+            "History relevant to the presenting problem",
+            "Examination findings",
+            "Medical decision-making note"
+          ],
+          "blocking_elements": []
+        }
+      ]
+    },
+    {
+      "payer_id": "PAYER_MEDICARE_ADV_B",
+      "payer_name": "Cascade Medicare Advantage (synthetic)",
+      "plan_types": ["MA-PPO", "MA-HMO"],
+      "cpt_domains": ["orthopedics", "pain-management"],
+      "cms_baseline_override": false,
+      "coverage_policies": [
+        {
+          "cpt_code": "27447",
+          "coverage_status": "covered_with_prior_auth",
+          "ncd_id": "NCD-NONE-27447",
+          "lcd_id": "L33456",
+          "criteria": {
+            "summary": "Medicare Advantage plan must cover at least the CMS LCD floor for major joint replacement and adds a 6-month conservative-management documentation requirement before authorization.",
+            "conservative_therapy_weeks_required": 24,
+            "imaging_required": true,
+            "overlay_notes": "MA plan applies a stricter 24-week conservative-management window than the commercial overlay; this is the criterion most often missing in submitted records."
+          }
+        }
+      ],
+      "auth_requirements": [
+        {
+          "procedure_code": "27447",
+          "diagnosis_group": "knee_osteoarthritis",
+          "plan_type": "MA-PPO",
+          "auth_required": true,
+          "criteria_list": [
+            "Radiographic confirmation of advanced osteoarthritis (Kellgren-Lawrence grade 3-4)",
+            "Documented 24-week conservative-management history",
+            "Documented failure of physical therapy",
+            "Documented failure of pharmacologic management",
+            "Surgical risk assessment"
+          ],
+          "decision_days": 14
+        }
+      ],
+      "documentation_criteria": [
+        {
+          "criteria_id": "DOC_MA_B_27447",
+          "procedure_code": "27447",
+          "required_elements": [
+            "Radiographic / imaging report with Kellgren-Lawrence grading",
+            "Conservative-management history spanning at least 24 weeks",
+            "Physical therapy completion notes",
+            "Pharmacologic management trial and outcome",
+            "Surgical risk / pre-operative assessment"
+          ],
+          "blocking_elements": [
+            "Radiographic / imaging report with Kellgren-Lawrence grading",
+            "Conservative-management history spanning at least 24 weeks",
+            "Physical therapy completion notes"
+          ]
+        }
+      ]
+    },
+    {
+      "payer_id": "PAYER_MEDICAID_C",
+      "payer_name": "Statewide Medicaid Plan C (synthetic)",
+      "plan_types": ["Medicaid-MCO"],
+      "cpt_domains": ["orthopedics", "evaluation-management"],
+      "cms_baseline_override": false,
+      "coverage_policies": [
+        {
+          "cpt_code": "27447",
+          "coverage_status": "covered_with_prior_auth",
+          "ncd_id": "NCD-NONE-27447",
+          "lcd_id": "L34567",
+          "criteria": {
+            "summary": "Medicaid managed-care plan covers major joint replacement with prior authorization and a state-mandated second-opinion requirement for members under 60.",
+            "conservative_therapy_weeks_required": 12,
+            "imaging_required": true,
+            "overlay_notes": "Adds a state second-opinion requirement not present in the federal floor."
+          }
+        },
+        {
+          "cpt_code": "99213",
+          "coverage_status": "covered_no_auth",
+          "ncd_id": "NCD-EVAL-99213",
+          "lcd_id": "L35099",
+          "criteria": {
+            "summary": "Established-patient office visit covered, no prior authorization required.",
+            "imaging_required": false,
+            "overlay_notes": "No overlay beyond the CMS E/M baseline."
+          }
+        }
+      ],
+      "auth_requirements": [
+        {
+          "procedure_code": "27447",
+          "diagnosis_group": "knee_osteoarthritis",
+          "plan_type": "Medicaid-MCO",
+          "auth_required": true,
+          "criteria_list": [
+            "Radiographic confirmation of advanced osteoarthritis",
+            "Documented 12-week conservative therapy trial",
+            "Second surgical opinion for members under 60"
+          ],
+          "decision_days": 10
+        }
+      ],
+      "documentation_criteria": [
+        {
+          "criteria_id": "DOC_MCD_C_27447",
+          "procedure_code": "27447",
+          "required_elements": [
+            "Radiographic / imaging report confirming advanced osteoarthritis",
+            "Conservative therapy log spanning at least 12 weeks",
+            "Second surgical opinion (members under 60)"
+          ],
+          "blocking_elements": [
+            "Radiographic / imaging report confirming advanced osteoarthritis",
+            "Conservative therapy log spanning at least 12 weeks"
+          ]
+        }
+      ]
+    }
+  ]
+}

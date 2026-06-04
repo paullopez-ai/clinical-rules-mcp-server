@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "source": "CMS National Coverage Determinations (NCD), coverage.cms.gov",
+    "provenance": "Public domain (U.S. federal government work, 17 U.S.C. 105)",
+    "note": "Summaries are representative excerpts of public CMS coverage language, cached so Track 1 requires no live CMS API call. Full determinations are linked via full_text_url.",
+    "cached_at": "2026-06-04"
+  },
+  "ncds": [
+    {
+      "ncd_id": "NCD-150.9",
+      "title": "Anesthesia in Cataract / Routine Pre-Operative Determinations",
+      "effective_date": "2020-01-01",
+      "summary": "Routine pre-operative medical evaluation is covered when medically necessary and supports the surgical determination. National policy sets the federal floor; contractor LCDs supply procedure-specific clinical criteria.",
+      "full_text_url": "https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=150.9"
+    },
+    {
+      "ncd_id": "NCD-NONE-27447",
+      "title": "Total Knee Arthroplasty — No National Coverage Determination",
+      "effective_date": "2018-01-01",
+      "summary": "There is no NCD for major joint replacement (CPT 27447). In the absence of a national determination, coverage is governed by local contractor LCDs and individual payer medical policy. Agents must therefore consult both the LCD layer and the payer overlay; the federal floor alone is silent.",
+      "full_text_url": "https://www.cms.gov/medicare-coverage-database/search.aspx?keyword=27447"
+    },
+    {
+      "ncd_id": "NCD-160.7",
+      "title": "Electrical Nerve Stimulators",
+      "effective_date": "2019-03-15",
+      "summary": "Covers electrical nerve stimulation for chronic intractable pain when conservative therapy has been tried and failed. Establishes a federal conservative-therapy prerequisite that payer overlays may extend with duration requirements.",
+      "full_text_url": "https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=160.7"
+    },
+    {
+      "ncd_id": "NCD-EVAL-99213",
+      "title": "Evaluation and Management Office Visit — Federal Coverage",
+      "effective_date": "2021-01-01",
+      "summary": "Established-patient office/outpatient evaluation and management visits (CPT 99213) are covered when medically necessary. No prior authorization is required at the federal level for routine E/M services.",
+      "full_text_url": "https://www.cms.gov/medicare-coverage-database/search.aspx?keyword=99213"
+    }
+  ]
+}
