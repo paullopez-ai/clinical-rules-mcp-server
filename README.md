@@ -58,6 +58,8 @@ way, and this server is the state-and-local layer.
 
 <!-- DIAGRAM: insert rendered architecture.mermaid image here -->
 
+![Clinical Rules Architecture](clinical-rules-architecture.png)
+
 > The machine-readable source for the rendered diagram lives at
 > [`docs/architecture.mermaid`](docs/architecture.mermaid) (`graph TD`).
 
