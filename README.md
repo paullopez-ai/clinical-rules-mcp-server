@@ -1,5 +1,22 @@
 # clinical-rules-mcp-server
 
+## Professional Context and IP Notice
+
+This prototype is a reference design built to demonstrate the type of
+work I do as an AI architect in healthcare and enterprise contexts. It
+does not contain proprietary information, client data, trade secrets,
+internal systems knowledge, or confidential materials from any current
+or former employer or their clients. All data is synthetic, all
+architecture patterns are based on publicly available technologies and
+standards, and all code was written independently on personal equipment
+outside of employment obligations.
+
+The scenarios and domain context (prior authorization, denial
+management, payer operations) reflect publicly understood healthcare
+industry problems, not any specific client engagement or internal system.
+
+---
+
 An MCP server that exposes payer-specific clinical authorization criteria
 as structured, agent-consumable tools — designed to compose with Anthropic's
 native Claude for Healthcare CMS Connector.
