@@ -194,14 +194,6 @@ changes the model endpoint and provisions no infrastructure.
 
 ---
 
-## Interview Demo Guide
-
-A five-part walkthrough (Track 1, Track 2, architecture, design-decision Q&A,
-production path) lives in
-[`docs/interview-demo-guide.md`](docs/interview-demo-guide.md).
-
----
-
 ## Data & Provenance
 
 Only public-domain CMS data and clearly-labeled synthetic data are used. **No
